@@ -1,12 +1,14 @@
 import json
 
 def saveToFile(fp, dct):
+    for key in dct.keys():
+        dct[key] = list(set(dct[key]))
     fp.seek(0)  # rewind
     fp.write(json.dumps(dct, sort_keys=True))
     fp.truncate()
     
 def main():
-    useChronology = 'chronoQuiz2Post1837.json'
+    useChronology = 'chronoMerge.json'
     # useChronology = 'chronoQuiz2Full.json'
     with open(useChronology, 'r+b') as fp:
         chrono = json.load(fp)
