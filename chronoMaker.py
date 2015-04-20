@@ -6,15 +6,15 @@ def saveToFile(fp, dct):
     fp.truncate()
     
 def main():
-    with open('chronoQuiz2.json', 'r+b') as fp:
+    with open('chronoQuiz2Full.json', 'r+b') as fp:
         chrono = json.load(fp)
 
         quit = False
     
         try:
             while(not quit):
-                date = input("Enter a date (-1 to quit): ")
-                if(date == -1):
+                date = raw_input("Enter a date (-1 to quit): ")
+                if(date == '-1'):
                     print("quitting...")
                     saveToFile(fp, chrono)
                     quit = True
