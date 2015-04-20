@@ -1,6 +1,5 @@
 import random
 import json
-import collections
 
 def repeatAndLearn(date):
     print 'Nope: ' + date
@@ -11,14 +10,15 @@ def repeatAndLearn(date):
     print 'Yup: ' + date
         
 def main():
-    with open('/Users/michaelsilver/Downloads/chronoQuiz2Full.json', 'rb') as fp:
+    # testWith = '/Users/michaelsilver/Downloads/chronoQuiz2ThirdPart.json'
+    testWith = 'chronoQuiz2Post1837.json' 
+    with open(testWith, 'rb') as fp:
         chrono = json.load(fp)
-        # chronoOrdered = collections.OrderedDict(sorted(chrono.items(), key=lambda t: t[0]))
         chronoFlat = {}
         for key in chrono.keys():
             for value in chrono[key]:
                 chronoFlat[value] = key
-        # print chronoFlat
+
         errorWindow = 2        # years
         quit = False
         
@@ -39,7 +39,7 @@ def main():
             else:
                 if guess == 0:
                     quit = True
-                elif abs(int(date) - guess) < errorWindow:
+                elif abs(int(date) - guess) <= errorWindow:
                     print 'Yup: ' + date
                 else:
                     repeatAndLearn(date)

@@ -6,7 +6,9 @@ def saveToFile(fp, dct):
     fp.truncate()
     
 def main():
-    with open('chronoQuiz2Full.json', 'r+b') as fp:
+    useChronology = 'chronoQuiz2Post1837.json'
+    # useChronology = 'chronoQuiz2Full.json'
+    with open(useChronology, 'r+b') as fp:
         chrono = json.load(fp)
 
         quit = False
