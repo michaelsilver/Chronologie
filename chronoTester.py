@@ -11,7 +11,7 @@ def repeatAndLearn(date):
     print 'Yup: ' + date
         
 def main():
-    with open('/Users/michaelsilver/Downloads/chronoQuiz2Part.json', 'rb') as fp:
+    with open('/Users/michaelsilver/Downloads/chronoQuiz2Full.json', 'rb') as fp:
         chrono = json.load(fp)
         # chronoOrdered = collections.OrderedDict(sorted(chrono.items(), key=lambda t: t[0]))
         chronoFlat = {}
@@ -19,7 +19,7 @@ def main():
             for value in chrono[key]:
                 chronoFlat[value] = key
         # print chronoFlat
-        errorWindow = 10        # years
+        errorWindow = 2        # years
         quit = False
         
         print 'When was (0 to quit)...'
